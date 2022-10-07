@@ -1,28 +1,28 @@
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Task2
 {
+	 public static void main(String[] args) {
 
-	public static void main(String[] args)
-	{
-		String pal, str = "";
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter word:");
+	     Scanner sc=new Scanner(System.in);
 
-		pal = sc.nextLine();
-		int i = pal.length();
+	        String input = sc.nextLine();
+	        Stack<Character> stack = new Stack<Character>();
 
-		for (int p = i - 1; p >= 0; p--)
-		{
-			str = str + pal.charAt(p);
-		}
-		if (pal.equalsIgnoreCase(str))
-		{
-			System.out.println("The string is palindrome.");
-		} else
-		{
-			System.out.println("The string is not a palindrome.");
-		}
+	        for (int i = 0; i < input.length(); i++) {
+	            stack.push(input.charAt(i));
+	        }
 
-	}
+	        String pal = "";
+
+	        while (!stack.isEmpty()) {
+	            pal += stack.pop();
+	        }
+
+	        if (input.equals(pal))
+	            System.out.println("Yes");
+	        else
+	            System.out.println("No");
+	 }
 }
